@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زيادة بلس</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fdf6ee;
+      color: #1d2b38;
+    }
+    header {
+      background-color: #ffc845;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      height: 80px;
+    }
+    h1 {
+      margin-top: 10px;
+      font-size: 28px;
+      color: #1d2b38;
+    }
+    .content {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .platforms {
+      margin: 20px 0;
+    }
+    .platforms span {
+      display: inline-block;
+      background-color: #ffe58f;
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin: 5px;
+      font-weight: bold;
+    }
+    .info-section {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      background-color: #fff6dc;
+      padding: 20px;
+      border-radius: 15px;
+      text-align: right;
+    }
+    .info-section h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+    .info-section ul {
+      list-style: none;
+      padding-right: 20px;
+    }
+    .info-section ul li::before {
+      content: '♦';
+      color: #e38900;
+      margin-left: 5px;
+    }
+    .order-section {
+      background-color: #fff6dc;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: right;
+    }
+    .order-section input, .order-section select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+    .order-section button {
+      background-color: #ffc845;
+      color: #1d2b38;
+      font-weight: bold;
+      padding: 10px;
+      border: none;
+      width: 100%;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .telegram-button {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background-color: #229ED9;
+      color: white;
+      padding: 15px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    small {
+      display: block;
+      color: #a00;
+      margin-bottom: 10px;
+    }
+    .payment-info {
+      background-color: #fff3cd;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 500px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.jpg" alt="شعار زيادة بلس">
+    <h1>مرحباً بك في زيادة بلس</h1>
+    <p>خدماتنا لزيادة متابعينك على المنصات السوشيال ميديا</p>
+  </header>
+
+  <div class="content">
+    <div class="platforms">
+      <strong>الخدمات المتاحة:</strong>
+      <span>إنستجرام</span>
+      <span>فيسبوك</span>
+      <span>تيك توك</span>
+    </div>
+
+    <div class="info-section">
+      <h2>كبر صفحتك أو قناتك في أسرع وقت – بخدمات زيادة متابعين آمنة وموثوقة!</h2>
+      <ul>
+        <li>منصة "زيادة بلس": نقدم خدمات رقمية تساعدك في تنمية حساباتك على السوشيال ميديا بسرعة وبشكل موثوق.</li>
+        <li>سواء كنت صانع محتوى، مؤثر، صاحب مشروع، أو حابب تكبر حسابك – إحنا هنا علشانك.</li>
+        <li>نضمن جودة الحسابات والمتابعين.</li>
+        <li>نديك ضمان حقيقي يوصل لـ 365 يوم.</li>
+        <li>الدفع بسيط وآمن عبر فودافون كاش.</li>
+        <li>دعم سريع لو واجهت أي مشكلة.</li>
+      </ul>
+    </div>
+
+    <div class="payment-info">طريقة الدفع: فودافون كاش 01066690912</div>
+
+    <div class="order-section">
+      <h2>نموذج الطلب</h2>
+      <form id="orderForm">
+        <label>1. اختر المنصة:</label>
+        <select id="platform" onchange="updatePackages()" required>
+          <option value="">اختر المنصة</option>
+          <option value="instagram">إنستجرام</option>
+          <option value="facebook">فيسبوك</option>
+          <option value="tiktok">تيك توك</option>
+        </select>
+
+        <label>2. اختر الباقة:</label>
+        <select id="package" required>
+          <option value="">اختر الباقة</option>
+        </select>
+
+        <label>3. العدد المطلوب:</label>
+        <input type="number" id="amount" min="1000" placeholder="مثال: 2000" required>
+        <small>⚠️ أقل عدد هو 1000</small>
+
+        <label>4. رقم الهاتف الذي تم التحويل منه:</label>
+        <input type="text" id="senderPhone" placeholder="مثال: 010****8" required>
+
+        <label>5. رابط الحساب:</label>
+        <input type="text" id="accountLink" placeholder="ضع رابط حسابك" required>
+
+        <label>6. المبلغ المدفوع:</label>
+        <input type="text" id="paidAmount" placeholder="مثال: 117 جنيه" required>
+
+        <button type="submit">7. إرسال الطلب</button>
+      </form>
+    </div>
+  </div>
+
+  <a class="telegram-button" href="https://t.me/ziyada_plus" target="_blank" title="التحدث مع خدمة العملاء">
+    التحدث مع خدمة العملاء
+  </a>
+
+  <script>
+    const packages = {
+      instagram: [
+        "1000 متابع | ضمان 60 يوم = 58.5 جنيه",
+        "1000 متابع | ضمان 90 يوم = 59.5 جنيه",
+        "1000 متابع | ضمان سنة = 60.5 جنيه",
+        "1000 متابع | مدى الحياة = 65 جنيه",
+        "1000 لايك | ضمان 30 يوم = 23 جنيه"
+      ],
+      facebook: [
+        "1000 متابع | ضمان 30 يوم = 33.5 جنيه",
+        "1000 متابع | ضمان سنة = 52 جنيه",
+        "1000 متابع | مدى الحياة = 55 جنيه"
+      ],
+      tiktok: [
+        "1000 متابع | بدون ضمان = 58 جنيه",
+        "1000 متابع | ضمان 30 يوم = 60 جنيه",
+        "1000 متابع | ضمان 60 يوم = 62 جنيه",
+        "1000 متابع | ضمان 90 يوم = 63.5 جنيه",
+        "1000 متابع | ضمان سنة = 65 جنيه",
+        "1000 لايك | ضمان 30 يوم = 7 جنيه",
+        "10000 مشاهدة | بدون ضمان = 10 جنيه"
+      ]
+    };
+
+    function updatePackages() {
+      const platform = document.getElementById("platform").value;
+      const packageSelect = document.getElementById("package");
+      packageSelect.innerHTML = '<option value="">اختر الباقة</option>';
+      if (packages[platform]) {
+        packages[platform].forEach(pkg => {
+          const option = document.createElement("option");
+          option.textContent = pkg;
+          option.value = pkg;
+          packageSelect.appendChild(option);
+        });
+      }
+    }
+
+    let orderCounter = parseInt(localStorage.getItem("orderCounter")) || 1;
+
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const platform = document.getElementById("platform").value;
+      const pack = document.getElementById("package").value;
+      const amount = document.getElementById("amount").value;
+      const accountLink = document.getElementById("accountLink").value;
+      const senderPhone = document.getElementById("senderPhone").value;
+      const paidAmount = document.getElementById("paidAmount").value;
+
+      const orderId = `#ZP-${String(orderCounter).padStart(4, '0')}`;
+
+      const message = `📬 طلب جديد من الموقع:
+
+🔖 رقم الطلب: ${orderId}
+📌 المنصة: ${platform}
+🎁 الباقة: ${pack}
+🔢 العدد: ${amount}
+🔗 رابط الحساب: ${accountLink}
+📞 رقم التحويل: ${senderPhone}
+💵 المبلغ المدفوع: ${paidAmount}`;
+
+      const token = "7955533619:AAGK2jLotD7aKUHKJnSCpPGeaKnXR0_P4sA";
+      const chatId = "7440112530";
+      const url = `https://api.telegram.org/bot${token}/sendMessage`;
+
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(`تم إرسال الطلب بنجاح ✅\nرقم طلبك: ${orderId}`);
+        document.getElementById("orderForm").reset();
+        orderCounter++;
+        localStorage.setItem("orderCounter", orderCounter);
+      })
+      .catch(error => {
+        alert("حدث خطأ أثناء الإرسال ❌");
+        console.error("Error:", error);
+      });
+    });
+  </script>
+</body>
+</html>
